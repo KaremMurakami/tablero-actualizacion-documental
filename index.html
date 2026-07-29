@@ -25,14 +25,14 @@ button,input,select,textarea{font:inherit}
 .btn{border:0;border-radius:9px;padding:10px 13px;font-weight:700;cursor:pointer;background:var(--navy);color:#fff}
 .btn.secondary{background:#fff;color:var(--navy);border:1px solid var(--line)}
 .btn.danger{background:var(--darkgray)}
-.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:14px 0}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:14px 0}
 .kpi{background:#fff;border-radius:16px;padding:15px 16px;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden;min-height:112px}
 .kpi:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
 .kpi .label{font-size:12px;text-transform:uppercase;letter-spacing:.55px;color:var(--muted);font-weight:800}
 .kpi .value{font-size:34px;line-height:1;margin-top:9px;font-weight:900;color:var(--accent)}
 .kpi .meta{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}
 .kpi.total{--accent:var(--navy)} .kpi.tes{--accent:var(--red)} .kpi.gestion{--accent:var(--purple)}
-.kpi.mejora{--accent:var(--sky)} .kpi.publicados{--accent:var(--green)} .kpi.noini{--accent:var(--gray)}
+.kpi.mejora{--accent:var(--sky)} .kpi.publicados{--accent:var(--green)}
 .executive-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(340px,.7fr);gap:14px}
 .panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:var(--shadow)}
 .panel-title{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px}
@@ -40,8 +40,8 @@ button,input,select,textarea{font:inherit}
 .panel-title span{font-size:11px;color:var(--muted);text-align:right}
 .summary-wrap,.docs-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}
 table{width:100%;border-collapse:collapse}
-th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:center;font-size:12px;vertical-align:middle}
-thead th{background:var(--navy);color:#fff;position:sticky;top:0;z-index:2;font-size:11px}
+th,td{border-bottom:1px solid var(--line);padding:8px 7px;text-align:center;font-size:13px;vertical-align:middle}
+thead th{background:var(--navy);color:#fff;position:sticky;top:0;z-index:2;font-size:12px}
 tbody th{text-align:left;color:var(--navy)}
 tfoot th{background:#eaf1f7;color:var(--navy);font-weight:900}
 .c-area,.c-enlace{color:var(--red);font-weight:900} .c-gestion{color:var(--purple);font-weight:900}
@@ -59,7 +59,7 @@ tfoot th{background:#eaf1f7;color:var(--navy);font-weight:900}
 .controls{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:9px;margin:10px 0}
 .controls input,.controls select{border:1px solid #cbd6e1;border-radius:9px;padding:9px;background:#fff}
 .docs-panel{margin-top:14px}
-.docs-table{min-width:1320px}
+.docs-table{min-width:1180px;table-layout:fixed}
 .docs-table td:nth-child(3),.docs-table td:nth-child(4),.docs-table td:last-child{text-align:left}
 .status,.substatus{width:100%;min-width:155px;border:1px solid #cbd6e1;border-radius:8px;padding:7px;background:#fff;font-size:12px}
 .note{width:100%;min-width:230px;min-height:52px;border:1px solid #cbd6e1;border-radius:8px;padding:8px;resize:vertical;font-size:12px}
@@ -70,6 +70,25 @@ tfoot th{background:#eaf1f7;color:var(--navy);font-weight:900}
 body.executive .actions,body.executive .docs-panel{display:none}
 body.executive .app{max-width:1600px}
 .badge{display:inline-block;padding:4px 7px;border-radius:999px;background:#edf2f6;color:var(--navy);font-weight:800;font-size:10px}
+
+.docs-table th:nth-child(1),.docs-table td:nth-child(1){width:44px}
+.docs-table th:nth-child(2),.docs-table td:nth-child(2){width:88px}
+.docs-table th:nth-child(3),.docs-table td:nth-child(3){width:34%}
+.docs-table th:nth-child(4),.docs-table td:nth-child(4){width:18%}
+.docs-table th:nth-child(5),.docs-table td:nth-child(5){width:150px}
+.docs-table th:nth-child(6),.docs-table td:nth-child(6){width:210px}
+.docs-table th:nth-child(7),.docs-table td:nth-child(7){width:220px}
+.status,.substatus{font-weight:800;transition:.18s}
+.status.status-tesoreria{background:#fde8eb;border-color:#d96a73;color:#9d1f2a}
+.status.status-gestion{background:#eee8f7;border-color:#a98ccc;color:#5c3b8d}
+.status.status-mejora{background:#e4f4fc;border-color:#79bee4;color:#176f9e}
+.status.status-publicado{background:#e5f4ea;border-color:#7fbd94;color:#216b43}
+.status.status-baja{background:#e7eaee;border-color:#9aa3ad;color:#374151}
+.substatus.sub-area{background:#fff0f2;border-color:#e39199;color:#9d1f2a}
+.substatus.sub-enlace{background:#f0eafb;border-color:#b29bd5;color:#624394}
+.substatus.sub-noiniciado{background:#f0f2f4;border-color:#b9c0c8;color:#5f6873}
+.substatus:disabled{background:#f3f5f7;border-color:#d8dee5;color:#9099a4}
+
 @media(max-width:1150px){.hero{grid-template-columns:220px 1fr}.cut{grid-column:1/-1;text-align:left}.kpis{grid-template-columns:repeat(3,1fr)}.executive-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.app{padding:8px}.hero{grid-template-columns:1fr;padding:16px}.logo-box{max-width:260px}.hero h1{font-size:22px}.kpis{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}.chart-area{flex-direction:column}}
 @media print{body{background:#fff}.actions,.docs-panel{display:none!important}.app{padding:0;max-width:none}.hero,.panel,.kpi{box-shadow:none}}
@@ -98,7 +117,6 @@ body.executive .app{max-width:1600px}
  <article class="kpi gestion"><div class="label">En Gestión</div><div class="value" id="kGestion">0</div><div class="meta" id="pGestion">0%</div></article>
  <article class="kpi mejora"><div class="label">En Mejora Regulatoria</div><div class="value" id="kMejora">0</div><div class="meta" id="pMejora">0%</div></article>
  <article class="kpi publicados"><div class="label">Publicados</div><div class="value" id="kPub">0</div><div class="meta" id="pPub">0%</div></article>
- <article class="kpi noini"><div class="label">No iniciados</div><div class="value" id="kNoIni">0</div><div class="meta" id="pNoIni">0%</div></article>
 </section>
 
 <section class="executive-grid">
@@ -139,7 +157,7 @@ body.executive .app{max-width:1600px}
   </table>
  </div>
 </section>
-<div class="footer">Los porcentajes se calculan exclusivamente sobre documentos vigentes. Las bajas no forman parte de los totales ni porcentajes.</div>
+<div class="footer">Los porcentajes se calculan exclusivamente sobre documentos vigentes. Las bajas no forman parte de los totales ni porcentajes. Todos los documentos vigentes se encuentran iniciados.</div>
 </div>
 
 <script>
@@ -162,7 +180,6 @@ function counts(){
   total:a.length,bajas:docs.length-a.length,tes:tes.length,
   area:tes.filter(d=>d.subestatus==="En elaboración/correcciones por el área").length,
   enlace:tes.filter(d=>d.subestatus==="En revisión por Enlace").length,
-  noini:tes.filter(d=>d.subestatus==="No iniciado").length,
   gestion:a.filter(d=>d.estatus==="En Gestión").length,
   mejora:a.filter(d=>d.estatus==="En Mejora Regulatoria").length,
   pub:a.filter(d=>d.estatus==="Publicado").length
@@ -179,21 +196,19 @@ function renderKpis(){
  kGestion.textContent=c.gestion;pGestion.textContent=pct(c.gestion,c.total);
  kMejora.textContent=c.mejora;pMejora.textContent=pct(c.mejora,c.total);
  kPub.textContent=c.pub;pPub.textContent=pct(c.pub,c.total);
- kNoIni.textContent=c.noini;pNoIni.textContent=pct(c.noini,c.total);
  donutTotal.textContent=c.total;
  const parts=[
   ["En Tesorería",c.tes,COLORS["En Tesorería"]],
   ["En Gestión",c.gestion,COLORS["En Gestión"]],
   ["En Mejora Regulatoria",c.mejora,COLORS["En Mejora Regulatoria"]],
-  ["Publicados",c.pub,COLORS["Publicado"]],
-  ["No iniciados",c.noini,COLORS["No iniciado"]]
+  ["Publicados",c.pub,COLORS["Publicado"]]
  ].filter(x=>x[1]>0);
  let start=0,segments=[];
  parts.forEach(([name,value,color])=>{const end=start+(value/c.total*100);segments.push(`${color} ${start}% ${end}%`);start=end});
  donut.style.background=`conic-gradient(${segments.join(",")})`;
  legend.innerHTML=parts.map(([name,value,color])=>`<div class="legend-row"><span class="dot" style="background:${color}"></span><span>${name}</span><b>${value}</b></div>`).join("");
  const external=c.gestion+c.mejora+c.pub;
- conclusion.innerHTML=`<strong>Conclusión ejecutiva:</strong> De los <b>${c.total} documentos vigentes</b>, <b>${external} (${pct(external,c.total)})</b> ya se encuentran fuera de la fase interna de elaboración de la Tesorería: ${c.gestion} en Gestión, ${c.mejora} en Mejora Regulatoria y ${c.pub} publicados. Permanecen <b>${c.tes}</b> en Tesorería, de los cuales <b>${c.area}</b> están en elaboración o corrección por las direcciones y <b>${c.enlace}</b> en revisión por Enlace. Actualmente hay <b>${c.noini}</b> documentos no iniciados.`;
+ conclusion.innerHTML=`<strong>Conclusión ejecutiva:</strong> De los <b>${c.total} documentos vigentes</b>, <b>${external} (${pct(external,c.total)})</b> ya se encuentran fuera de la fase interna de elaboración de la Tesorería: ${c.gestion} en Gestión, ${c.mejora} en Mejora Regulatoria y ${c.pub} publicados. Permanecen <b>${c.tes}</b> en Tesorería, de los cuales <b>${c.area}</b> están en elaboración o corrección por las direcciones y <b>${c.enlace}</b> en revisión por Enlace. Todos los documentos vigentes han iniciado su proceso de actualización.`;
 }
 function renderSummary(){
  const dirs=[...new Set(docs.map(d=>d.direccion))].sort((a,b)=>a.localeCompare(b,"es"));
@@ -221,6 +236,23 @@ function filtered(){
   return(!q||hay.includes(q))&&(!dir||d.direccion===dir)&&(!st||d.estatus===st);
  });
 }
+
+function paintSelect(el){
+ const v=el.value;
+ el.classList.remove("status-tesoreria","status-gestion","status-mejora","status-publicado","status-baja","sub-area","sub-enlace","sub-noiniciado");
+ if(el.classList.contains("status")){
+   if(v==="En Tesorería")el.classList.add("status-tesoreria");
+   else if(v==="En Gestión")el.classList.add("status-gestion");
+   else if(v==="En Mejora Regulatoria")el.classList.add("status-mejora");
+   else if(v==="Publicado")el.classList.add("status-publicado");
+   else if(v==="Baja")el.classList.add("status-baja");
+ }else{
+   if(v==="En elaboración/correcciones por el área")el.classList.add("sub-area");
+   else if(v==="En revisión por Enlace")el.classList.add("sub-enlace");
+   else if(v==="No iniciado")el.classList.add("sub-noiniciado");
+ }
+}
+
 function renderDocs(){
  const rows=filtered();
  docsBody.innerHTML=rows.map(d=>`<tr>
@@ -229,12 +261,12 @@ function renderDocs(){
   <td><select class="substatus" data-id="${d.id}" ${d.estatus!=="En Tesorería"?"disabled":""}><option value="">No aplica</option>${SUBSTATUSES.map(x=>`<option ${x===d.subestatus?"selected":""}>${x}</option>`).join("")}</select></td>
   <td><textarea class="note" data-id="${d.id}" placeholder="Agregar nota…">${esc(d.notas||"")}</textarea><span class="save" id="saved-${d.id}">Guardado</span></td>
  </tr>`).join("");
- document.querySelectorAll(".status").forEach(el=>el.onchange=e=>{
+ document.querySelectorAll(".status").forEach(el=>{paintSelect(el);el.onchange=e=>{
   const d=docs.find(x=>x.id===Number(e.target.dataset.id));d.estatus=e.target.value;
   if(d.estatus!=="En Tesorería")d.subestatus=""; else if(!d.subestatus)d.subestatus="No iniciado";
   save();renderAll();
  });
- document.querySelectorAll(".substatus").forEach(el=>el.onchange=e=>{const d=docs.find(x=>x.id===Number(e.target.dataset.id));d.subestatus=e.target.value;save();renderAll()});
+ document.querySelectorAll(".substatus").forEach(el=>{paintSelect(el);el.onchange=e=>{const d=docs.find(x=>x.id===Number(e.target.dataset.id));d.subestatus=e.target.value;save();renderAll()}});
  document.querySelectorAll(".note").forEach(el=>el.oninput=e=>{
   const id=Number(e.target.dataset.id),d=docs.find(x=>x.id===id);d.notas=e.target.value;save();
   const s=document.getElementById("saved-"+id);s.classList.add("show");clearTimeout(s.t);s.t=setTimeout(()=>s.classList.remove("show"),700);
